@@ -5,7 +5,8 @@ import './Header.css'
 
 const Header = () => {
     return (
-        <div id="nav-bar">
+        <header>
+            
             <h1>Stranger's Things</h1>
             
             <NavLink to = "/posts">POSTS</NavLink>
@@ -13,7 +14,7 @@ const Header = () => {
             <NavLink to = "/login">LOGIN</NavLink>
             <NavLink to = "/register">REGISTER</NavLink>
 
-        </div>
+        </header>
 
     )
 
