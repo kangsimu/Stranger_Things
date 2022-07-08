@@ -1,20 +1,20 @@
 import React from 'react';
-import { NavLink } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 import './Header.css'
 
-const Header = () => {
+const Header = (props) => {
     return (
-        <header>
+        <div className = "box">
             
             <h1>Stranger's Things</h1>
             
-            <NavLink to = "/posts">POSTS</NavLink>
-            <NavLink to = "/profile">PROFILE</NavLink>
-            <NavLink to = "/login">LOGIN</NavLink>
-            <NavLink to = "/register">REGISTER</NavLink>
+            <Link to = "/posts">POSTS</Link>
+            <Link to = "/profile">PROFILE</Link>
+            <Link to = "/login">LOGIN</Link>
+            <Link to = "/register">REGISTER</Link>
 
-        </header>
+        </div>
 
     )
 

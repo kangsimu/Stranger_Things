@@ -1,6 +1,7 @@
-import React, {useState} from 'react'
+import React from 'react'
 
-const Register = () => {
+const Register = (props) => {
+    
 
     
 }

@@ -20,3 +20,16 @@ export const loginUser = async (username, password) => {
     const token = result.data.token
     return token
 }
+
+export const getProfile = async(token) => {
+    const response = await fetch(`${API_URL + COHORT}/users/me`,
+        {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+        }
+        })
+    const result = await response.json()
+    const data = result.data
+    return data
+}
