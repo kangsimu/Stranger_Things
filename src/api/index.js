@@ -59,20 +59,8 @@ export const registerUser = async (username, password) => {
     return result
   }
 
-  export const fetchAllPosts = async () => {
-    try {
-        const response = await fetch(`${APIURL}/posts`);
-        const result = await response.json();
-        if(result.error) throw result.error
-        return result.data.posts
-        
-    } catch (error){
-        console.error('Trouble fetching posts', error)
-    }
-}
 
-
-  export async function deletePosts (token, postId) {
+  export const deletePosts = async (token, postId) => {
     const response = await fetch(`${BASE}${COHORT}/posts/${postId}`, {
     method: "DELETE",
     headers: {
