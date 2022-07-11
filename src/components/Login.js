@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import { loginUser } from '../api'
+import {useNavigate} from 'react-router-dom'
 
-const Login = (props) => {
+const Login = ({loggedIn, setloggedIn}) => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate();
 
     const handleOnChange = (event) => {
         const changed = event.target.id

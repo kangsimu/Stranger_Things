@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 import './Header.css'
 
@@ -9,18 +9,18 @@ const Header = (props) => {
             
             <h1>Stranger's Things</h1>
             
-            <Link to = "/posts">POSTS</Link>
+            <NavLink to = "/posts">POSTS</NavLink>
 
-            <Link to = "/profile">PROFILE</Link>
+            <NavLink to = "/profile">PROFILE</NavLink>
             
-            <Link to = "/login">LOGIN</Link>
+            <NavLink to = "/login">LOGIN</NavLink>
             
-            <Link to = "/register">REGISTER</Link>
+            <NavLink to = "/register">REGISTER</NavLink>
 
         </div>
 
-    )
+    );
 
-}
+};
 
-export default Header
+export default Header;

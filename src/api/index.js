@@ -22,7 +22,7 @@ export const loginUser = async (username, password) => {
 }
 
 export const getProfile = async(token) => {
-    const response = await fetch(`${API_URL + COHORT}/users/me`,
+    const response = await fetch(`${BASE}${COHORT}/users/me`,
         {
             headers: {
                 'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ export const getProfile = async(token) => {
     return data
 }
 
-export const registerPerson = async (username, password) => {
+export const registerUser = async (username, password) => {
     const response = await fetch(`${BASE}${COHORT}/users/register`, {
       method: "POST",
       headers: {

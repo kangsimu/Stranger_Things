@@ -3,9 +3,14 @@ import {Routes, Route} from "react-router-dom"
 import {Posts, Profile, Login, Register, Header} from "./"
 
 const App = () => {
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [loggedIn, setloggedIn] = useState("");
+    
+
     return (
         <>
-        <NavBar />
+        <Header />
             <Routes>
             <Route path='/' element={<div>Landing Page</div>} />
             <Route path='/login' element={<Login />} />
