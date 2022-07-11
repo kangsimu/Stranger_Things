@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect} from 'react'
 import {Routes, Route} from "react-router-dom"
 import {Posts, Profile, Login, Register, Header} from "./"
 
