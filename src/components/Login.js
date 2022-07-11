@@ -45,7 +45,7 @@ const Login = ({loggedIn, setloggedIn}) => {
                     placeholder="Password Here"
                     value={password}
                     />
-                <button type="submit">Login Please!</button>
+                <button type="submit">Login</button>
 
             </form>
 
@@ -53,4 +53,4 @@ const Login = ({loggedIn, setloggedIn}) => {
 
 }
 
-export default Login
+export default Login;

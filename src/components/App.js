@@ -6,7 +6,7 @@ const App = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [loggedIn, setloggedIn] = useState("");
-    
+    const [token, setToken] = useState("");
 
     return (
         <>
@@ -18,7 +18,10 @@ const App = () => {
                     element={<Profile />
             } />
             <Route path='/register' element={<Register />} />
+            <Route path='/Posts' element={<Posts />} />
             </Routes>
+
+            
         </>
     )
 }
