@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { loginUser } from '../api'
-import {useNavigate} from 'react-router-dom'
+import {NavLink, useNavigate} from 'react-router-dom'
 
 const Login = ({username, setUsername, password, setPassword, setIsLoggedIn}) => {
     const navigate = useNavigate();
@@ -46,6 +46,8 @@ const Login = ({username, setUsername, password, setPassword, setIsLoggedIn}) =>
                     value={password}
                     />
                 <button type="submit">Login</button>
+
+                <NavLink to ={"/register"}>Don't have an account? Register here!</NavLink>
 
             </form>
 

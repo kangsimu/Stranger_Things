@@ -8,7 +8,6 @@ const AddPosts = ({username, posts, setPosts}) => {
     const [price, setPrice] = useState('Free');
     const [location, setLocation] = useState('On Request');
     const [deliver, willDeliver] = useState(false);
-    const navigate = useNavigate()
 
     const handleSubmit = async(event) => {
         event.preventDefault()
@@ -49,7 +48,7 @@ const AddPosts = ({username, posts, setPosts}) => {
                 <input className="postTitles" onChange = {(event) => {setPrice(event.target.value)}} 
                     type='text' price='price' value = {price} required/>
                 <div className="postTitles" > 
-                <input id="checkbox" className="postTitles" onChange = {(event) => {setWillDeliver(event.target.value)}} 
+                <input id="checkbox" className="postTitles" onChange = {(event) => {willDeliver(event.target.value)}} 
                     type='checkbox'  name='delivery' value={willDeliver}/>
                 Will Deliver
                 </div> 
