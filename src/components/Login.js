@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { loginUser } from '../api'
 import {useNavigate} from 'react-router-dom'
 
-const Login = ({username, setuserName, password, setPassword, setloggedIn}) => {
-    let navigate = useNavigate();
+const Login = ({username, setUsername, password, setPassword, setIsLoggedIn}) => {
+    const navigate = useNavigate();
     const handleOnChange = (event) => {
         const input = event.target.id
         if(input === 'username'){
@@ -18,16 +18,11 @@ const Login = ({username, setuserName, password, setPassword, setloggedIn}) => {
     
     event.preventDefault()
       const token = await loginUser(username, password)
-      token ? setloggedIn(true) : false 
+      token ? setIsLoggedIn(true) : false 
       localStorage.setItem("token", token)
       localStorage.setItem("username", username )
       setUsername(username)
       navigate('/Profile')
-    }
-
-    const registerButton = async(event) => {
-        event.preventDefault()
-        navigate('/Register')
     }
     
     return (
@@ -54,8 +49,8 @@ const Login = ({username, setuserName, password, setPassword, setloggedIn}) => {
 
             </form>
 
-    </div>)
-
+    </div>
+    )
 }
 
 export default Login;

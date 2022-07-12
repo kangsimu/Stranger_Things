@@ -1,16 +1,27 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
-const Logout = ({loggedIn}) => {
+const Logout = ({ setIsLoggedIn }) => {
     const navigate = useNavigate()
     function handleUserLogout(){
-        loggedIn(false)
+        setIsLoggedIn(false);
         localStorage.removeItem("token");
-        navigate('/')
+        localStorage.reoveItem("username");
+        navigate("/");
     }
-    return (
-        <button onClick={handleUserLogout}>Logout</button>
-    )
-}
+    const username = localStorage.getItem("username");
 
+    return (
+        <>
+        <h1 className="logoutTitle">Are you sure you want to log out of:</h1>
+        <h2 className="logoutUser">{username}?</h2>
+        <NavLink to="/" className="returnHome">-Return Home-</NavLink>
+        <NavLink to="/Posts" className="returnPosts">-Return to Posts-</NavLink>
+        <button onClick={handleUserLogout} className="logoutButton">
+            Logout
+        </button>
+    </>
+    )
+
+}
 export default Logout
