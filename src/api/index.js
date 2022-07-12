@@ -2,7 +2,7 @@ const BASE = 'https://strangers-things.herokuapp.com/api'
 const COHORT = '2206-FTB-ET-WEB-FT-A'
 
 export const loginUser = async (username, password) => {
-    const response = await fetch(`${BASE + COHORT}/users/login`, {
+    const response = await fetch(`${BASE}${COHORT}/users/login`, {
         method: "POST",
         headers: {
             'Content-Type': 'application/json'
@@ -18,25 +18,6 @@ export const loginUser = async (username, password) => {
     const result = await response.json()
     const token = result.data.token
     return token
-}
-
-export async function retrievePosts() {
-  const response = await fetch(`${BASE}${COHORT}/posts`)
-  const result = await response.json()
-    return result
-  
-}
-
-export const getProfile = async(token) => {
-    const response = await fetch(`${BASE}${COHORT}/users/me`, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-        }
-        })
-    const result = await response.json()
-    const data = result.data
-    return data
 }
 
 export const registerUser = async (username, password) => {
@@ -59,8 +40,26 @@ export const registerUser = async (username, password) => {
     return result
   }
 
+export async function retrievePosts() {
+  const response = await fetch(`${BASE}${COHORT}/posts`)
+  const result = await response.json()
+    return result
+    
+}
 
-  export const deletePosts = async (token, postId) => {
+export const getProfile = async (token) => {
+    const response = await fetch(`${BASE}${COHORT}/users/me`, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+        }
+        })
+    const result = await response.json()
+    const data = result.data
+    return data
+}
+
+export const deletePosts = async (token, postId) => {
     const response = await fetch(`${BASE}${COHORT}/posts/${postId}`, {
     method: "DELETE",
     headers: {

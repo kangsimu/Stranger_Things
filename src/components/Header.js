@@ -10,11 +10,8 @@ const Header = (props) => {
             <h1>Stranger's Things</h1>
             
             <NavLink to = "/posts">POSTS</NavLink>
-
-            <NavLink to = "/profile">PROFILE</NavLink>
-            
-            <NavLink to = "/login">LOGIN</NavLink>
-            
+            <NavLink to = "/profile">PROFILE</NavLink>            
+            <NavLink to = "/login">LOGIN</NavLink>            
             <NavLink to = "/register">REGISTER</NavLink>
 
         </div>
