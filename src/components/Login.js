@@ -2,28 +2,33 @@ import React, { useState } from 'react'
 import { loginUser } from '../api'
 import {useNavigate} from 'react-router-dom'
 
-const Login = ({loggedIn, setloggedIn}) => {
-
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
-    const navigate = useNavigate();
-
+const Login = ({username, setuserName, password, setPassword, setloggedIn}) => {
+    let navigate = useNavigate();
     const handleOnChange = (event) => {
-        const changed = event.target.id
-        if (changed === 'username') {
-            setUsername(event.target.value)        
+        const input = event.target.id
+        if(input === 'username'){
+            setUsername(event.target.value)
         }
         else {
-            setPassword(event.target.value)        
+            setPassword(event.target.value)
+        }
     }
-}
+    
+    const handleSubmit = async(event) =>{
+    
+    event.preventDefault()
+      const token = await loginUser(username, password)
+      token ? setloggedIn(true) : false 
+      localStorage.setItem("token", token)
+      localStorage.setItem("username", username )
+      setUsername(username)
+      navigate('/Profile')
+    }
 
-    const handleSubmit = async (event) => {
+    const registerButton = async(event) => {
         event.preventDefault()
-        const token = await loginUser(username, password)
-        localStorage.setItem("token", token)
+        navigate('/Register')
     }
-
     
     return (
         <div className='box'>{'This is your Login component'}

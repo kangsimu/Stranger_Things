@@ -12,7 +12,6 @@ const root = ReactDOM.createRoot(document.getElementById('app'))
 root.render(
     <BrowserRouter>
     
-    <Header />
     <App />
 
     </BrowserRouter>

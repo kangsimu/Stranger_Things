@@ -12,6 +12,6 @@ export {default as Login} from './Login.js'
 
 export {default as Delete} from './DeletePosts.js'
 
-export {default as AddPosts} from './AddPosts.js'
+export {default as Add} from './AddPosts.js'
 
 

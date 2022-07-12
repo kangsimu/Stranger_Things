@@ -6,11 +6,23 @@ const App = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [loggedIn, setloggedIn] = useState("");
+    const [posts, setPosts] = useState("");
     const [token, setToken] = useState("");
 
+    useEffect (() => {
+        if(localStorage.getItem("token")){
+            setloggedIn(true)
+        }
+    },[])
+    
     return (
         <>
-        <Header />
+        <Header 
+        loggedIn={loggedIn}
+        setloggedIn={setloggedIn}
+        setUsername={setUsername}
+        setPassword={setPassword}
+        />
             <Routes>
             <Route path='/' element={<div>Landing Page</div>} />
             <Route path='/login' element={<Login />} />

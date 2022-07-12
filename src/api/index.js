@@ -38,13 +38,12 @@ export const registerUser = async (username, password) => {
     localStorage.setItem("token", token);
     localStorage.setItem("username", username)
     return result
-  }
+}
 
 export async function retrievePosts() {
   const response = await fetch(`${BASE}${COHORT}/posts`)
   const result = await response.json()
     return result
-    
 }
 
 export const getProfile = async (token) => {
@@ -59,6 +58,23 @@ export const getProfile = async (token) => {
     return data
 }
 
+export const createPosts = async(token, addPost) => {
+  const response = await fetch (`${BASE}${COHORT}/posts`, {
+    method:"POST",
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+    },
+    body: JSON.stringify({
+    post: addPost          
+    })     
+})
+ const result = await response.json()
+ //console.log(result)
+   const newPost = result.data.post
+   return newPost 
+}
+
 export const deletePosts = async (token, postId) => {
     const response = await fetch(`${BASE}${COHORT}/posts/${postId}`, {
     method: "DELETE",
@@ -68,4 +84,4 @@ export const deletePosts = async (token, postId) => {
     },
   })
   const result = await response.json()
-  }
+}

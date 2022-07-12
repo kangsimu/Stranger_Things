@@ -38,7 +38,7 @@ const handleSubmit = async (event) => {
                 }}
                 />
             </label>
-            <button type='submit'>Login</button>
+            <button type='submit'>Create User</button>
 
             </form>
         </>);
