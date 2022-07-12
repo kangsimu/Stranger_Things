@@ -1,17 +1,16 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {registerUser} from '../api'
+import { useNavigate } from 'react-router-dom'
 
-const Register = ({username, password, setUsername, setPassword, setIsLoggedIn}) => {
+const Register = ({ username, setUsername, password, setPassword }) => {
+    
+    const navigate = useNavigate();
     async function handleSubmit(event) {
-        event.preventDefault()
-        const token = await registerUser(username, password)
-        if (token) {
-            setIsLoggedIn(true);  
-            localStorage.setItem("token", token);
-            localStorage.setItem("username", username );
-            setUsername(username);
-            };
-    } 
+      event.preventDefault();
+      await registerUser(username, password);
+      navigate("/Posts");
+    }
+
     return (<>
         <div>Register</div>
         <form onSubmit={handleSubmit}>

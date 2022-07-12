@@ -19,14 +19,13 @@ const Login = ({username, setUsername, password, setPassword, setIsLoggedIn}) =>
     event.preventDefault()
       const token = await loginUser(username, password)
       token ? setIsLoggedIn(true) : false 
-      localStorage.setItem("token", token)
-      localStorage.setItem("username", username )
+      localStorage.setItem("user", token)
       setUsername(username)
       navigate('/Profile')
     }
     
     return (
-        <div className='box'>{'This is your Login component'}
+        <div className='box'>{'Login'}
             <form onSubmit={handleSubmit}>
                 <label>Username</label>
 

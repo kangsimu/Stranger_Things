@@ -23,7 +23,7 @@ const Posts = ({ searchPosts, setSearchPosts }) => {
             </p>
             <h3>{post.author.username}</h3>
             <p>
-                <b>Location: </b>{post.ocation}
+                <b>Location: </b>{post.location}
             </p>
             {/* {<button onSubmit={handleDelete}>Delete</button>} */}
             <button onClick={handleEdit}>Edit</button>
@@ -36,20 +36,18 @@ const Posts = ({ searchPosts, setSearchPosts }) => {
     }
     return (
         <div>
-            <div>
-                <div>{sendPosts}</div>
-                <h1>Posts</h1>
-                <input
-                    name='search-posts'
-                    type='text'
-                    value={searchPosts}
-                    placeholder='Search Posts'
-                    onChange={(event) => {
-                        setSearchPosts(event.target.value)
-                    }}
-                />
-                <NavLink to="/AddPosts">(ADD POST)</NavLink>
-            </div>
+            <div>{sendPosts}</div>
+            <h1>Posts</h1>
+            <input
+                name='search-posts'
+                type='text'
+                value={searchPosts}
+                placeholder='Search Posts'
+                onChange={(event) => {
+                    setSearchPosts(event.target.value)
+                }}
+            />
+            <NavLink to="/AddPosts">(ADD POST)</NavLink>
         </div>
     )
 }

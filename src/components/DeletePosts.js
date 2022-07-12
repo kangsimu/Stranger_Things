@@ -16,4 +16,4 @@ const DeletePosts = ({element_id}) => {
     );
 };
 
-export default DeletePosts
+export default DeletePosts;
