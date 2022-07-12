@@ -2,60 +2,56 @@ import { useState, useEffect } from 'react'
 import { retrievePosts } from '../api'
 import { NavLink } from 'react-router-dom';
 
-const Posts = ({searchPosts, setSearchPosts}) => {
-const [posts, setPosts] = useState ([])
+const Posts = ({ searchPosts, setSearchPosts }) => {
+    const [posts, setPosts] = useState([])
     useEffect(() => {
-        retrievePosts()
-    
-        .then ((object) => {
-            setPosts(object.data.posts)
+        fetch('https://strangers-things.herokuapp.com/api/2206-FTB-ET-WEB-FT-A/posts')
+        .then(response=>response.json())
+        .then(result => {
+            setPosts(result.data.posts)
         })
-        .catch ((error) => {});
-    }, 
-    
-    [])
-    //console.log(posts)
-    
-    function handleEdit(){
+        .catch(console.error);
+
+    },[])
+    const sendPosts = posts.map((post, index) => (
+
+        <div key={index} className='posts'>
+            <h2>{post.title}</h2>
+            <p>{post.description}</p>
+            <p>
+                <b>Price: </b>{post.price}
+            </p>
+            <h3>{post.author.username}</h3>
+            <p>
+                <b>Location: </b>{post.ocation}
+            </p>
+            {/* {<button onSubmit={handleDelete}>Delete</button>} */}
+            <button onClick={handleEdit}>Edit</button>
+        </div>
+    ))
+    function handleEdit() {
         let token = localStorage.getItem('token')
-   
+
         editPosts(token)
-}
-
-
+    }
     return (
         <div>
             <div>
+                <div>{sendPosts}</div>
                 <h1>Posts</h1>
-                    <input 
+                <input
                     name='search-posts'
                     type='text'
-                    value= {searchPosts}
-                    placeholder = 'Search Posts'
-                    onChange = {(event) => {
+                    value={searchPosts}
+                    placeholder='Search Posts'
+                    onChange={(event) => {
                         setSearchPosts(event.target.value)
                     }}
-                    /> 
-                    <NavLink to= "/AddPosts">(ADD POST)</NavLink>
+                />
+                <NavLink to="/AddPosts">(ADD POST)</NavLink>
             </div>
-            {posts.map(({title, description, price, location, _id, author}) => (
-                
-                <div key={_id} className='posts'>
-                    <h2>{title}</h2>
-                    <p>{description}</p>
-                    <p>
-                        <b>Price: </b>{price}
-                        </p>
-                    <h3>{author.username}</h3>
-                    <p>
-                        <b>Location: </b>{location}
-                        </p>
-                    { <button onSubmit={handleDelete}>Delete</button> }
-                    <button onClick={handleEdit}>Edit</button>
-                </div>
-            ) )}
         </div>
     )
 }
 
-export default Posts
+export default Posts;
