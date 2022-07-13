@@ -1,10 +1,7 @@
-
-
 #nav-bar {
-    display: flex;
-    align-items: center;
-    background-color: cornflowerblue;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-
+  display: flex;
+  align-items: center;
+  background-color: cornflowerblue;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }
