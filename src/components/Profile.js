@@ -12,7 +12,7 @@ const Profile = () => {
       const myReturnedInfo = await getProfile(token);
       setMyInfo(myReturnedInfo);
     }
-    getMyInfo();
+//    getMyInfo();
   }, []);
 
   return <div className="box">{`This is your Profile Component`}</div>;
