@@ -87,6 +87,7 @@ const AddPosts = ({ username, posts, setPosts }) => {
         <button className="submitPost" type="submit">
           Submit Post
         </button>
+        <p>After you submit, your posts will show up at the bottom!</p>
       </form>
     </div>
   );

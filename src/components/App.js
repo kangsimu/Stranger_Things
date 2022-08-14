@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import { Posts, Profile, Login, Register, Header, AddPosts } from "./index.js";
+import { Posts, Profile, Login, Register, Header, AddPosts, Home, Logout } from "./index.js";
 
 const App = () => {
   const [username, setUsername] = useState("");
@@ -26,9 +26,8 @@ const App = () => {
         <Route
           path="/"
           element={
-            <Login 
-                username={username} 
-                setUsername={setUsername} />}
+            <Home
+                 />}
         />
         <Route
           path="/login"
@@ -39,6 +38,8 @@ const App = () => {
                 password={password}
                 setPassword={setPassword}
                 setIsLoggedIn={setIsLoggedIn}
+                myInfo={myInfo} 
+                setMyInfo={setMyInfo}
             />
           }
         />
@@ -65,6 +66,20 @@ const App = () => {
               setUsername={setUsername}
               password={password}
               setPassword={setPassword}
+            />
+          }
+        />
+        <Route
+          path="/home"
+          element={
+            <Home
+            />
+          }
+        />
+        <Route
+          path="/logout"
+          element={
+            <Login
             />
           }
         />

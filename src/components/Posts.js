@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { retrievePosts } from "../api";
+import { deletePosts, retrievePosts } from "../api";
 import { NavLink } from "react-router-dom";
 
 const Posts = ({ searchPosts, setSearchPosts }) => {
@@ -28,11 +28,16 @@ const Posts = ({ searchPosts, setSearchPosts }) => {
         {post.location}
       </p>
       <button onClick={handleEdit}>Edit</button>
+      <button onClick={handleDelete}>Delete</button>
     </div>
   ));
   function handleEdit() {
     let token = localStorage.getItem("token");
     editPosts(token);
+  }
+  function handleDelete() {
+    let token = localStorage.getItem("token")
+    deletePosts(token);
   }
   return (
     <div>

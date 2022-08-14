@@ -6,12 +6,13 @@ import "./Header.css";
 const Header = (props) => {
   return (
     <div id="nav-bar">
-      <h1>Stranger's Things</h1>
+      <NavLink to="/home"><h1>Stranger's Things</h1></NavLink>
 
       <NavLink to="/posts">POSTS</NavLink>
       <NavLink to="/profile">PROFILE</NavLink>
-      <NavLink to="/login">LOGIN</NavLink>
       <NavLink to="/register">REGISTER</NavLink>
+      <NavLink to="/login">LOGIN</NavLink>
+      <NavLink to="/logout">LOGOUT</NavLink>
     </div>
   );
 };

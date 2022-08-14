@@ -7,7 +7,7 @@ const Register = ({ username, setUsername, password, setPassword }) => {
   async function handleSubmit(event) {
     event.preventDefault();
     await registerUser(username, password);
-    navigate("/Posts");
+    navigate("/login");
   }
 
   return (
