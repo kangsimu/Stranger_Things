@@ -3,14 +3,14 @@ const COHORT = "2206-FTB-ET-WEB-FT-A";
 
 //get the posts to show
 export async function retrievePosts() {
-  const response = await fetch(`${BASE}${COHORT}/posts`);
+  const response = await fetch(`${BASE}/${COHORT}/posts`);
   const result = await response.json();
   return result;
 }
 
 //logging in user
 export const loginUser = async (username, password) => {
-  const response = await fetch(`${BASE}${COHORT}/users/login`, {
+  const response = await fetch(`${BASE}/${COHORT}/users/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -22,15 +22,15 @@ export const loginUser = async (username, password) => {
       },
     }),
   });
-  console.log(response, "response from log");
   const result = await response.json();
+  console.log(result, "response from log");
   const token = result.data.token;
   return token;
 };
 
 //no account, registering user
 export const registerUser = async (username, password) => {
-  const response = await fetch(`${BASE}${COHORT}/users/register`, {
+  const response = await fetch(`${BASE}/${COHORT}/users/register`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -46,12 +46,13 @@ export const registerUser = async (username, password) => {
   const token = result.data.token;
   localStorage.setItem("token", token);
   localStorage.setItem("username", username);
+  console.log(result);
   return result;
 };
 
 //pulling up profile
 export const getProfile = async (token) => {
-  const response = await fetch(`${BASE}${COHORT}/users/me`, {
+  const response = await fetch(`${BASE}/${COHORT}/users/me`, {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,

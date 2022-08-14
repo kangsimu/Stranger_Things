@@ -38,6 +38,7 @@ const App = () => {
                 setUsername={setUsername}
                 password={password}
                 setPassword={setPassword}
+                setIsLoggedIn={setIsLoggedIn}
             />
           }
         />
