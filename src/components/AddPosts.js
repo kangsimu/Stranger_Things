@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { createPosts } from "../api";
+import { useNavigate } from "react-router-dom";
+
 //all the way at bottom of posts
 const AddPosts = ({ username, posts, setPosts }) => {
   const [title, setTitle] = useState("");
@@ -7,6 +9,8 @@ const AddPosts = ({ username, posts, setPosts }) => {
   const [price, setPrice] = useState("Free");
   const [location, setLocation] = useState("On Request");
   const [deliver, willDeliver] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();

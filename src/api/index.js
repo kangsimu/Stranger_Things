@@ -65,7 +65,7 @@ export const getProfile = async (token) => {
 
 //creating new posts
 export const createPosts = async (token, addPost) => {
-  const response = await fetch(`${BASE}${COHORT}/posts`, {
+  const response = await fetch(`${BASE}/${COHORT}/posts`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -82,7 +82,7 @@ export const createPosts = async (token, addPost) => {
 
 //deleting posts
 export const deletePosts = async (token, postId) => {
-  const response = await fetch(`${BASE}${COHORT}/posts/${postId}`, {
+  const response = await fetch(`${BASE}/${COHORT}/posts/${postId}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",

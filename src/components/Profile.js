@@ -2,20 +2,26 @@ import React, { useState, useEffect } from "react";
 import { getProfile } from "../api";
 
 const Profile = () => {
-  let token = "";
-
   const [myInfo, setMyInfo] = useState({});
 
   useEffect(() => {
-    token = localStorage.getItem("token");
-    async function getMyInfo() {
-      const myReturnedInfo = await getProfile(token);
-      setMyInfo(myReturnedInfo);
+    let token = localStorage.getItem("token");
+    if (token) {
+      async function getMyInfo() {
+        const returnedInfo = await getProfile(token);
+        setMyInfo(returnedInfo);
+      }
+      getMyInfo();
     }
-//    getMyInfo();
   }, []);
 
-  return <div className="box">{`This is your Profile Component`}</div>;
+  return (
+    <div className="box">
+      <h1>Welcome to your profile {myInfo.username}!</h1>
+      <div>Your Messages:</div>
+      <div>You currently have no messages!</div>
+    </div>
+  )
 };
 
 export default Profile;
