@@ -36,6 +36,7 @@ const Posts = ({ searchPosts, setSearchPosts }) => {
   }
   return (
     <div>
+      <NavLink to="/AddPosts">(ADD POST)</NavLink>
       <div>{sendPosts}</div>
       <h1>Posts</h1>
       <input
@@ -47,7 +48,6 @@ const Posts = ({ searchPosts, setSearchPosts }) => {
           setSearchPosts(event.target.value);
         }}
       />
-      <NavLink to="/AddPosts">(ADD POST)</NavLink>
     </div>
   );
 };

@@ -90,4 +90,5 @@ export const deletePosts = async (token, postId) => {
     },
   });
   const result = await response.json();
+  return result;
 };
