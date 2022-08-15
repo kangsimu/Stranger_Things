@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import { Posts, Profile, Login, Register, Header, AddPosts, Home } from "./index.js";
+import {
+  Posts,
+  Profile,
+  Login,
+  Register,
+  Header,
+  AddPosts,
+  Home,
+} from "./index.js";
 
 const App = () => {
   const [username, setUsername] = useState("");
@@ -23,40 +31,30 @@ const App = () => {
         setIsLoggedIn={setIsLoggedIn}
       />
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Home
-                 />}
-        />
+        <Route path="/" element={<Home />} />
         <Route
           path="/login"
           element={
             <Login
-                username={username}
-                setUsername={setUsername}
-                password={password}
-                setPassword={setPassword}
-                setIsLoggedIn={setIsLoggedIn}
-                myInfo={myInfo} 
-                setMyInfo={setMyInfo}
+              username={username}
+              setUsername={setUsername}
+              password={password}
+              setPassword={setPassword}
+              setIsLoggedIn={setIsLoggedIn}
+              myInfo={myInfo}
+              setMyInfo={setMyInfo}
             />
           }
         />
         <Route
           path="/profile"
-          element={
-            <Profile 
-                myInfo={myInfo} 
-                setMyInfo={setMyInfo} />}
+          element={<Profile myInfo={myInfo} setMyInfo={setMyInfo} />}
         />
         <Route
           path="/AddPosts"
           element={
-            <AddPosts 
-            username={username} 
-            setPosts={setPosts} 
-            posts={posts} />}
+            <AddPosts username={username} setPosts={setPosts} posts={posts} />
+          }
         />
         <Route
           path="/register"
@@ -69,20 +67,8 @@ const App = () => {
             />
           }
         />
-        <Route
-          path="/home"
-          element={
-            <Home
-            />
-          }
-        />
-        <Route
-          path="/logout"
-          element={
-            <Login
-            />
-          }
-        />
+        <Route path="/home" element={<Home />} />
+        <Route path="/logout" element={<Login />} />
         <Route
           path="/Posts"
           element={
@@ -91,7 +77,9 @@ const App = () => {
               setPosts={setPosts}
               isLoggedIn={isLoggedIn}
               username={username}
-              setMyInfo={setMyInfo}/>}
+              setMyInfo={setMyInfo}
+            />
+          }
         />
       </Routes>
     </div>
