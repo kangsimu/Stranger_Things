@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { deletePosts, retrievePosts } from "../api";
 
-const DeletePosts = ({ post, _id, posts, setPosts, filteredPosts, setFilteredPosts }) => {
+const DeletePosts = ({ post, posts, setPosts, filteredPosts, setFilteredPosts }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const token = localStorage.getItem('token');

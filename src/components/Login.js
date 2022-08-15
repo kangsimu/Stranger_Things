@@ -9,7 +9,7 @@ const Login = ({
   setPassword,
   setIsLoggedIn,
 }) => {
-  const navigate = useNavigate();
+  let navigate = useNavigate();
   const handleOnChange = (event) => {
     const input = event.target.id;
     if (input === "username") {

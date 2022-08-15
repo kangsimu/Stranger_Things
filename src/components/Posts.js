@@ -33,7 +33,7 @@ const Posts = ({ searchPosts, setSearchPosts }) => {
   ));
   function handleEdit() {
     let token = localStorage.getItem("token");
-    editPosts(token);
+    setPosts(token);
   }
   function handleDelete() {
     let token = localStorage.getItem("token")

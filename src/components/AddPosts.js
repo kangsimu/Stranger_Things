@@ -3,7 +3,7 @@ import { createPosts } from "../api";
 import { useNavigate } from "react-router-dom";
 
 //all the way at bottom of posts
-const AddPosts = ({ username, posts, setPosts }) => {
+const AddPosts = ({ posts, setPosts }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("Free");

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import { Posts, Profile, Login, Register, Header, AddPosts, Home, Logout } from "./index.js";
+import { Posts, Profile, Login, Register, Header, AddPosts, Home } from "./index.js";
 
 const App = () => {
   const [username, setUsername] = useState("");

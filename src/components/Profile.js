@@ -18,7 +18,7 @@ const Profile = () => {
   return (
     <div className="box">
       <h1>Welcome to your profile {myInfo.username}!</h1>
-      <div>Your Messages:</div>
+      <div>Your Messages:0</div>
       <div>You currently have no messages!</div>
     </div>
   )
