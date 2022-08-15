@@ -15,6 +15,6 @@ const Logout = (props) => {
     <button className="btn btn-dark" onClick={clearToken}>
       Log Out
     </button>
-  )
+  );
 };
 export default Logout;

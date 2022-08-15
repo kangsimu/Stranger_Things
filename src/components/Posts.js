@@ -36,7 +36,7 @@ const Posts = ({ searchPosts, setSearchPosts }) => {
     setPosts(token);
   }
   function handleDelete() {
-    let token = localStorage.getItem("token")
+    let token = localStorage.getItem("token");
     deletePosts(token);
   }
   return (
